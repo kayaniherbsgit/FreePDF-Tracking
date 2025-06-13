@@ -1,0 +1,79 @@
+.intro-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+.intro-box {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.card-style {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.intro-box h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.intro-box p {
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.phone-input-wrapper {
+  position: relative;
+}
+
+.custom-phone-input input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding-right: 40px;
+}
+
+.valid-check {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: green;
+  font-size: 1.2rem;
+}
+
+.continue-btn {
+  background-color: #f15959;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.continue-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.continue-btn:hover:not(:disabled) {
+  background-color: #dd3d3d;
+}
