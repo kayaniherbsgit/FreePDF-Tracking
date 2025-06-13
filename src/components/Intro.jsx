@@ -22,8 +22,8 @@ function Intro() {
   return (
     <div className="intro-wrapper">
       <div className="intro-box card-style">
-        <h2>Get started with Kaya Power</h2>
-        <p>Enter your phone number below to continue</p>
+        <h2>Siri Wanazotumia Wacheza XXX Kukaa Hadi Dakika 45 Kwenye Raundi 1</h2>
+        <p>Jaza namba Yako ya Simu Kwa Usahihi Kufungua PDF Hii Ya Bure. Hakikisha Umesave Namba Yangu --0655 889 126 Ili Uweze Kusoma PDF Hii</p>
 
         <div className="phone-input-wrapper">
           <PhoneInput
