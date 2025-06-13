@@ -8,6 +8,7 @@ import "./Intro.css";
 
 function Intro() {
   const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
 
   const handleStart = () => {
@@ -15,7 +16,13 @@ function Intro() {
       alert("Namba ya simu si sahihi!");
       return;
     }
+    if (name.trim().length < 2) {
+      alert("Tafadhali ingiza jina kamili!");
+      return;
+    }
+
     localStorage.setItem("userPhone", phone);
+    localStorage.setItem("userName", name);
     navigate("/read");
   };
 
@@ -23,7 +30,14 @@ function Intro() {
     <div className="intro-wrapper">
       <div className="intro-box card-style">
         <h2>Siri Wanazotumia Wacheza XXX Kukaa Hadi Dakika 45 Kwenye Raundi 1</h2>
-        <p>Jaza namba Yako ya Simu Kwa Usahihi Kufungua PDF Hii Ya Bure. Hakikisha Umesave Namba Yangu --0655 889 126 Ili Uweze Kusoma PDF Hii</p>
+        <p>Jaza jina na namba yako ya simu kufungua PDF hii ya bure. Hakikisha umesave namba yangu --0655 889 126 ili usome PDF hii.</p>
+
+        <input
+          type="text"
+          placeholder="👤 Jina Kamili"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <div className="phone-input-wrapper">
           <PhoneInput
@@ -43,7 +57,7 @@ function Intro() {
         <button
           className="continue-btn"
           onClick={handleStart}
-          disabled={!isValidPhoneNumber(phone)}
+          disabled={!isValidPhoneNumber(phone) || !name}
         >
           Continue
         </button>

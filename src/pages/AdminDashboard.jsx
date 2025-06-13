@@ -147,43 +147,44 @@ return (
     </div>
 
     <table>
-      <thead>
+            <thead>
         <tr>
-          <th>📞 Phone</th>
-          <th>📈 Progress (%)</th>
-          <th>🕒 Timestamp</th>
-          <th>🗑️ Action</th>
+            <th>👤 Name</th>
+            <th>📞 Phone</th>
+            <th>📈 Progress (%)</th>
+            <th>🕒 Timestamp</th>
+            <th>🗑️ Action</th>
         </tr>
-      </thead>
-      <tbody>
-        {filtered.length === 0 ? (
-          <tr>
-            <td colSpan="4" style={{ textAlign: "center" }}>
-              No results found.
-            </td>
-          </tr>
-        ) : (
-          filtered.map((entry, index) => (
-            <tr key={index}>
-              <td>{entry.phone || "N/A"}</td>
-              <td>{entry.percent || 0}%</td>
-              <td>
-                {entry.timestamp
-                  ? entry.timestamp.toDate().toLocaleString()
-                  : "N/A"}
-              </td>
-              <td>
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(entry.id)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))
-        )}
-      </tbody>
+        </thead>
+<tbody>
+  {filtered.length === 0 ? (
+    <tr>
+      <td colSpan="5" style={{ textAlign: "center" }}>No results found.</td>
+    </tr>
+  ) : (
+    filtered.map((entry, index) => (
+      <tr key={index}>
+        <td>{entry.name || "N/A"}</td>
+        <td>{entry.phone || "N/A"}</td>
+        <td>{entry.percent || 0}%</td>
+        <td>
+          {entry.timestamp
+            ? entry.timestamp.toDate().toLocaleString()
+            : "N/A"}
+        </td>
+        <td>
+          <button
+            className="delete-btn"
+            onClick={() => handleDelete(entry.id)}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
+
     </table>
   </div>
 );
