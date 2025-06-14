@@ -25,10 +25,18 @@ function AdminDashboard() {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "progress"), (snapshot) => {
-      const data = snapshot.docs.map((docSnap) => ({
-        id: docSnap.id,
-        ...docSnap.data(),
-      }));
+const data = snapshot.docs.map((docSnap) => ({
+  id: docSnap.id,
+  ...docSnap.data(),
+}));
+
+data.sort((a, b) => {
+  const timeA = a.timestamp?.toDate()?.getTime() || 0;
+  const timeB = b.timestamp?.toDate()?.getTime() || 0;
+  return timeB - timeA;
+});
+
+
       setEntries(data);
       setFiltered(data);
     });
@@ -148,13 +156,13 @@ return (
 
     <table>
             <thead>
-        <tr>
-            <th>👤 Name</th>
-            <th>📞 Phone</th>
-            <th>📈 Progress (%)</th>
-            <th>🕒 Timestamp</th>
-            <th>🗑️ Action</th>
-        </tr>
+                <tr>
+                    <th>👤 Name</th>
+                    <th>📞 Phone</th>
+                    <th>📈 Progress (%)</th>
+                    <th>🕒 Timestamp</th>
+                    <th>🗑️ Action</th>
+                </tr>
         </thead>
 <tbody>
   {filtered.length === 0 ? (
@@ -166,7 +174,7 @@ return (
       <tr key={index}>
         <td>{entry.name || "N/A"}</td>
         <td>{entry.phone || "N/A"}</td>
-        <td>{entry.percent || 0}%</td>
+<td>{Number(entry.percent || 0).toFixed(1)}%</td>
         <td>
           {entry.timestamp
             ? entry.timestamp.toDate().toLocaleString()

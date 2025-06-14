@@ -9,9 +9,9 @@ function FullContent() {
   const [scrollPercent, setScrollPercent] = useState(0);
 
 useEffect(() => {
-    const phone = localStorage.getItem("userPhone");
-    trackProgress(phone, 100);
-  }, []);
+    trackProgress(100);
+}, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
